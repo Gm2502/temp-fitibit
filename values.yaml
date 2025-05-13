@@ -1,0 +1,18 @@
+grafana:
+  adminUser: admin
+  adminPassword: admin
+  service:
+    type: NodePort
+    port: 3000
+
+influxdb:
+  database: FitbitHealthStats
+  username: fitbit_user
+  password: fitbit_password
+  pvcSize: 1Gi
+
+fitbit:
+  clientId: ""
+  clientSecret: ""
+  refreshToken: ""
+  deviceName: "Charge5"

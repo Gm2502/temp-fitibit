@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fitbit-config
+data:
+  DEVICE_NAME: "{{ .Values.fitbit.deviceName }}"
+  INFLUXDB_DATABASE: "{{ .Values.influxdb.database }}"
+  INFLUXDB_USERNAME: "{{ .Values.influxdb.username }}"
+  INFLUXDB_PASSWORD: "{{ .Values.influxdb.password }}"
+  INFLUXDB_HOST: "influxdb"
+  INFLUXDB_PORT: "8086"

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitbit-fetch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fitbit-fetch
+  template:
+    metadata:
+      labels:
+        app: fitbit-fetch
+    spec:
+      containers:
+      - name: fitbit-fetch
+        image: thisisarpanghosh/fitbit-fetch-data:latest
+        envFrom:
+        - configMapRef:
+            name: fitbit-config
+        - secretRef:
+            name: fitbit-secrets
+        volumeMounts:
+        - name: logs
+          mountPath: /app/logs
+        - name: tokens
+          mountPath: /app/tokens
+      volumes:
+      - name: logs
+        emptyDir: {}
+      - name: tokens
+        emptyDir: {}
